@@ -1,0 +1,128 @@
+{
+  "info": {
+    "name": "Fuel Route Optimizer",
+    "description": "Test collection for the Backend Django Engineer assignment. Single endpoint: GET /api/route/?start=&finish=",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key": "base_url", "value": "http://localhost:8000"}
+  ],
+  "item": [
+    {
+      "name": "Short route (no stop) - Houston -> Austin",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/route/?start=Houston, TX&finish=Austin, TX",
+          "host": ["{{base_url}}"],
+          "path": ["api", "route", ""],
+          "query": [
+            {"key": "start", "value": "Houston, TX"},
+            {"key": "finish", "value": "Austin, TX"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Long route (multiple stops) - Houston -> Boston",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/route/?start=Houston, TX&finish=Boston, MA",
+          "host": ["{{base_url}}"],
+          "path": ["api", "route", ""],
+          "query": [
+            {"key": "start", "value": "Houston, TX"},
+            {"key": "finish", "value": "Boston, MA"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Coast-to-coast route - Los Angeles -> New York",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/route/?start=Los Angeles, CA&finish=New York, NY",
+          "host": ["{{base_url}}"],
+          "path": ["api", "route", ""],
+          "query": [
+            {"key": "start", "value": "Los Angeles, CA"},
+            {"key": "finish", "value": "New York, NY"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Direct coordinates (lat,lng)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/route/?start=29.76,-95.36&finish=42.36,-71.05",
+          "host": ["{{base_url}}"],
+          "path": ["api", "route", ""],
+          "query": [
+            {"key": "start", "value": "29.76,-95.36"},
+            {"key": "finish", "value": "42.36,-71.05"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Full address (Photon fallback)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/route/?start=1600 Pennsylvania Ave NW, Washington, DC&finish=Boston, MA",
+          "host": ["{{base_url}}"],
+          "path": ["api", "route", ""],
+          "query": [
+            {"key": "start", "value": "1600 Pennsylvania Ave NW, Washington, DC"},
+            {"key": "finish", "value": "Boston, MA"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "ERROR 400 - missing parameters",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/route/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "route", ""]
+        }
+      }
+    },
+    {
+      "name": "ERROR 400 - unknown city",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/route/?start=Atlantis, ZZ&finish=Houston, TX",
+          "host": ["{{base_url}}"],
+          "path": ["api", "route", ""],
+          "query": [
+            {"key": "start", "value": "Atlantis, ZZ"},
+            {"key": "finish", "value": "Houston, TX"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "ERROR 502 - infeasible route (Honolulu -> Boston)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/route/?start=Honolulu, HI&finish=Boston, MA",
+          "host": ["{{base_url}}"],
+          "path": ["api", "route", ""],
+          "query": [
+            {"key": "start", "value": "Honolulu, HI"},
+            {"key": "finish", "value": "Boston, MA"}
+          ]
+        }
+      }
+    }
+  ]
+}
