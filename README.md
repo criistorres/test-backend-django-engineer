@@ -188,10 +188,7 @@ Why H2: a pure "cheapest in remaining range" heuristic stops too early — refue
 │   └── fuel-route-optimizer.postman_collection.json
 └── docs/
     ├── INSTRUCTIONS.md         # Original assessment brief
-    ├── DIAGRAM.md              # Executive diagrams (sequence + flowchart)
-    ├── DECISIONS.md            # Decision log (Dxx entries)
-    ├── GLOSSARY.md             # Glossary of technical terms
-    └── PRESENTATION.md         # 5-min Loom script
+    └── DECISIONS.md            # Decision log (Dxx entries)
 ```
 
 ---
@@ -250,10 +247,7 @@ Import `postman/fuel-route-optimizer.postman_collection.json` (Postman v2.1 form
 | File | Purpose |
 |---|---|
 | [`docs/INSTRUCTIONS.md`](docs/INSTRUCTIONS.md) | Original assignment brief |
-| [`docs/DIAGRAM.md`](docs/DIAGRAM.md) | Executive diagrams: sequence + flowchart + data pipeline |
 | [`docs/DECISIONS.md`](docs/DECISIONS.md) | Decision log (D01–D13) with context, options, trade-offs |
-| [`docs/GLOSSARY.md`](docs/GLOSSARY.md) | Glossary of technical terms used in the project |
-| [`docs/PRESENTATION.md`](docs/PRESENTATION.md) | 5-minute Loom walkthrough script |
 
 ---
 
